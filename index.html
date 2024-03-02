@@ -51,7 +51,7 @@
                 <h1 class="text-5xl font-extrabold">Welcome to the <br /> <span class="text-[#797dfc]">ReTro</span>
                     Forum</h1>
                 <p class="my-3 text-[#ffffffcc]">Share your favorite opinion and win and wp forum coffee mug!</p>
-                <input class=" w-[300px] rounded-3xl py-1 pl-3" type="text" placeholder="Search here anything">
+                <input id="input" class=" w-[300px] rounded-3xl py-1 pl-3" type="text" placeholder="Search here anything">
                 <button class="bg-[#797DFC] rounded-3xl absolute left-[255px] lg:left-[496px] my-1 px-3">search</button>
             </div>
             <div class="bg-white lg:rounded-md list-none p-5 my-8">
@@ -151,9 +151,9 @@
                     features allow for a streamlined .</p>
             </div>
             <!-- card section  -->
-            <div id="latest-post" class="grid grid-cols-3 gap-3">
-<!-- card 1 -->
-                <div class="card w-96 bg-base-100 shadow-xl">
+            <div id="latest-post" class="lg:grid grid-cols-3 gap-3">
+                <!-- card 1 -->
+                <div class="card bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                         <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
                             class="rounded-xl" />
@@ -176,7 +176,7 @@
                     </div>
                 </div>
                 <!-- card 2 -->
-                <div class="card w-96 bg-base-100 shadow-xl">
+                <div class="card bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                         <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
                             class="rounded-xl" />
@@ -199,7 +199,7 @@
                     </div>
                 </div>
                 <!-- card 3 -->
-                <div class="card w-96 bg-base-100 shadow-xl">
+                <div class="card bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                         <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
                             class="rounded-xl" />
@@ -224,16 +224,32 @@
 
             </div>
 
-
-
-
-
         </section>
-
     </main>
 
+    <footer>
+        <div class="bg-[#12132d0d] mt-10 pt-10">
+            <div class="text-center my-10 ">
+                <h1 class="text-4xl font-extrabold mt-32 mb-3 lg:my-2">ReTro</h1>
+                <p class="text-[#12132d99]">Yes, you can run unit tests and view the results directly within the
+                    app.
+                    The integrated testing
+                    features allow for a streamlined .</p>
+            </div>
+            <div class="flex gap-3 justify-center my-10">
+                <div><img src="./images/1.png" alt=""></div>
+                <div><img src="./images/2.png" alt=""></div>
+                <div><img src="./images/3.png" alt=""></div>
+                <div><img src="./images/4.png" alt=""></div>                   
+            </div>
+            <hr class="border-dashed"/>
+            <div class="text-center text-[#12132d99] py-10"><p>2017, All Rights Reserved.</p></div>
+        </div>
+    </footer>
 
 
+
+    <script src="app.js"></script>
 </body>
 
 </html>
