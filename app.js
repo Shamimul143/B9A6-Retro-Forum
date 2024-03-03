@@ -1,24 +1,28 @@
 const forumContainer = document.getElementById("forum-container")
+
 document.getElementById("loading-spinner").classList.remove("hidden")
+
 const allPost = async (input) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${input}`)
     const data = await res.json()
 
-    data.posts.forEach((item) => {
-        //------------------------------------------------------
-        let verified = ""
-        if (item.isActive) {
-            verified = `<img class="absolute left-[26px] lg:left-[64px]" src="./images/Status.png" alt="">`
-        } else {
-            verified = `<img class="absolute left-[26px] lg:left-[64px]" src="./images/Status2.png" alt="">`
-        }
-        // ---------------------------------------------------------------
-        document.getElementById("loading-spinner").classList.add("hidden")
+    setTimeout(() => {
 
-        const div = document.createElement("div")
+        data.posts.forEach((item) => {
+            //------------------------------------------------------
+            let verified = ""
+            if (item.isActive) {
+                verified = `<img class="absolute left-[26px] lg:left-[64px]" src="./images/Status.png" alt="">`
+            } else {
+                verified = `<img class="absolute left-[26px] lg:left-[64px]" src="./images/Status2.png" alt="">`
+            }
+            // ---------------------------------------------------------------
+            document.getElementById("loading-spinner").classList.add("hidden")
 
-        div.classList = ("col-span-2")
-        div.innerHTML = `
+            const div = document.createElement("div")
+
+            div.classList = ("col-span-2")
+            div.innerHTML = `
         <div id="post-container">
         <div class="flex  bg-[#797dfc1a] rounded-lg p-4 gap-2 mb-4">
             <div>
@@ -45,8 +49,9 @@ const allPost = async (input) => {
         </div>
     </div>
     `
-        forumContainer.appendChild(div)
-    })
+            forumContainer.appendChild(div)
+        })
+    }, 2000);
 }
 
 // input btn -------------------
@@ -119,6 +124,10 @@ const latestPost = async () => {
         latestPostCon.appendChild(div)
     })
 }
+
+
+
+
 
 latestPost()
 allPost('Comedy')
