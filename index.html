@@ -15,8 +15,9 @@
 
 </head>
 
-<body class="">
-    <header class="w-[90%] mx-auto">
+<body>
+    <header>
+        <div class="w-[90%] mx-auto">
         <nav>
             <div class="lg:flex justify-between my-8  items-center">
                 <div><img src="./images/logo.png" alt=""></div>
@@ -51,9 +52,9 @@
                 <h1 class="text-5xl font-extrabold">Welcome to the <br /> <span class="text-[#797dfc]">ReTro</span>
                     Forum</h1>
                 <p class="my-3 text-[#ffffffcc]">Share your favorite opinion and win and wp forum coffee mug!</p>
-                <input id="input" class=" w-[300px] rounded-3xl py-1 pl-3" type="text"
+                <input id="input" class=" text-black w-[300px] rounded-3xl py-1 pl-3" type="text"
                     placeholder="Search here anything">
-                <button class="bg-[#797DFC] rounded-3xl absolute left-[255px] lg:left-[496px] my-1 px-3">search</button>
+                <button onclick="searchBtn()" class="bg-[#797DFC] rounded-3xl absolute left-[255px] lg:left-[496px] my-1 px-3">search</button>
             </div>
             <div class="bg-white lg:rounded-md list-none p-5 my-8">
                 <li>Registered Users &nbsp 01</li>
@@ -62,6 +63,7 @@
                 <li>Replies &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 01</li>
             </div>
         </div>
+    </div>
     </header>
 
     <main class="w-[90%] mx-auto">
@@ -74,35 +76,8 @@
                     features allow for a streamlined .</p>
             </div>
 
-
+            <div id="loading-spinner" class="text-center hidden"><span class="loading loading-spinner loading-lg"></span></div>
             <div id="forum-container" class="lg:grid grid-cols-3 my-10 gap-4 relative ">
-                <!-- <div class="col-span-2">
-                    <div class="flex  bg-[#797dfc1a] rounded-lg p-4 gap-2 mb-4">
-                        <div>
-                            <img class="absolute left-[50px] lg:left-[130px]" src="./images/Status.png" alt="">
-                            <img src="./images/Rectangle 4.png" alt="">
-                        </div>
-                        <div>
-                            <span># Music</span> <span>Author : Awlad Hossain</span>
-                            <h2 class="text-xl font-bold mb-3">10 Kids Unaware of Their Halloween Costume</h2>
-                            <p class="text-[#12132d99]">It’s one thing to subject yourself to ha Halloween costume
-                                mishap because, hey that’s your
-                                prerogative</p>
-                            <hr class="disabled: py-2" />
-                            <div class="flex justify-between">
-                                <div class="flex gap-3 text-[#12132d99]">
-                                    <img src="./images/Group13.png" alt="">
-                                    <span>256</span>
-                                    <img src="./images/Group16.png" alt="">
-                                    <span>544</span>
-                                    <img src="./images/Group18.png" alt="">
-                                    <span>5454</span>
-                                </div>
-                                <div><img src="./images/Group40.png" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 
        
                <div class="bg-[#12132d0d] rounded-md p-4 absolute top-[-170px] lg:top-[1px] lg:right-[5px] w-[350px] ">
@@ -115,14 +90,8 @@
                                 <p>Mark as read <span>(4)</span></p>
                             </div>
                         </div>
-                        <div class="flex justify-between bg-white rounded-lg px-3 my-5">
-                            <div>
-                                <p>10 Kids Unaware of Their Halloween Costume</p>
-                            </div>
-                            <div class="flex gap-2 items-center">
-                                <div><img src="./images/Group16.png" alt=""></div>
-                                <span>5454</span>
-                            </div>
+                        <div  id="title-container" class=" bg-white rounded-lg px-3 my-5">
+    
                         </div>
                     
                     </div>
@@ -157,76 +126,8 @@
             </div>
             <!-- card section  -->
             <div id="latest-post" class="lg:grid grid-cols-3 gap-3">
-                <!-- card 1 -->
-                <div class="card bg-base-100 shadow-xl">
-                    <figure class="px-10 pt-10">
-                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
-                            class="rounded-xl" />
-                    </figure>
-                    <div class="card-body">
-                        <div class="flex gap-2 text-[#12132d99] "><img src="./images/Frame2.png" alt=""><span>29 January
-                                2024</span>
-                        </div>
-                        <h2 class="card-title font-bold">What will a mars habitat force that impact in our daily life!!!
-                        </h2>
-                        <p class="text-[#12132d99]">Yes, you can run unit tests and view the results directly within the
-                            app. </p>
-                        <div class="card-actions">
-                            <div><img src="./images/Ellipse1.png" alt=""></div>
-                            <div>
-                                <h4 class="font-bold">Cameron Williamson</h4>
-                                <p class="text-[#12132d99]">Unknown</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- card 2 -->
-                <div class="card bg-base-100 shadow-xl">
-                    <figure class="px-10 pt-10">
-                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
-                            class="rounded-xl" />
-                    </figure>
-                    <div class="card-body">
-                        <div class="flex gap-2 text-[#12132d99] "><img src="./images/Frame2.png" alt=""><span>29 January
-                                2024</span>
-                        </div>
-                        <h2 class="card-title font-bold">What will a mars habitat force that impact in our daily life!!!
-                        </h2>
-                        <p class="text-[#12132d99]">Yes, you can run unit tests and view the results directly within the
-                            app. </p>
-                        <div class="card-actions">
-                            <div><img src="./images/Ellipse1.png" alt=""></div>
-                            <div>
-                                <h4 class="text-[#12132d99]">Cameron Williamson</h4>
-                                <p class="text-[#12132d99]">Unknown</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- card 3 -->
-                <div class="card bg-base-100 shadow-xl">
-                    <figure class="px-10 pt-10">
-                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
-                            class="rounded-xl" />
-                    </figure>
-                    <div class="card-body">
-                        <div class="flex gap-2 text-[#12132d99] "><img src="./images/Frame2.png" alt=""><span>29 January
-                                2024</span>
-                        </div>
-                        <h2 class="card-title font-bold">What will a mars habitat force that impact in our daily life!!!
-                        </h2>
-                        <p class="text-[#12132d99]">Yes, you can run unit tests and view the results directly within the
-                            app. </p>
-                        <div class="card-actions">
-                            <div><img src="./images/Ellipse1.png" alt=""></div>
-                            <div>
-                                <h4 class="text-[#12132d99]">Cameron Williamson</h4>
-                                <p class="text-[#12132d99]">Unknown</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+               
+                
             </div>
 
         </section>

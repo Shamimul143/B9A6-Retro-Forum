@@ -1,9 +1,0 @@
-.cont{
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-.bad{
-    display: flex;
-    flex-direction: row-reverse;
-}
