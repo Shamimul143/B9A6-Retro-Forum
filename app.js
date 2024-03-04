@@ -36,7 +36,7 @@ const allPost = async (input) => {
                 <span># ${item.category}</span> <span>Author : ${item.author.name}</span>
                 <h2 id="title-cat" class="text-xl font-bold mb-3">${item.title}</h2>
                 <p class="text-[#12132d99]">${item.description}</p>
-                <hr class="disabled: py-2" />
+                <hr class="border-dashed py-2" />
                 <div class="flex justify-between lg:w-[700px]">
                     <div class="flex gap-3 text-[#12132d99]">
                         <img src="./images/Group13.png" alt="">
