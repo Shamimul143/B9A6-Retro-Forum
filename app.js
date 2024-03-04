@@ -59,6 +59,7 @@ const allPost = async (input) => {
 // Search btn -------------------
 
 function searchBtn() {
+    document.getElementById("loading-spinner").classList.remove("hidden")
     const input = document.getElementById("input").value.toUpperCase().trim();
     allPost(input)
 
