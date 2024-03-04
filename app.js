@@ -2,9 +2,13 @@ const forumContainer = document.getElementById("forum-container")
 
 document.getElementById("loading-spinner").classList.remove("hidden")
 
+// All Post section-------------------------------------------------
 const allPost = async (input) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${input}`)
     const data = await res.json()
+
+    forumContainer.innerHTML = ""
+    titleContainer.innerHTML = ""
 
     setTimeout(() => {
 
@@ -12,18 +16,17 @@ const allPost = async (input) => {
             //------------------------------------------------------
             let verified = ""
             if (item.isActive) {
-                verified = `<img class="absolute left-[26px] lg:left-[64px]" src="./images/Status.png" alt="">`
+                verified = `<img class="absolute left-[60px] lg:left-[128px]" src="./images/Status.png" alt="">`
             } else {
-                verified = `<img class="absolute left-[26px] lg:left-[64px]" src="./images/Status2.png" alt="">`
+                verified = `<img class="absolute left-[60px] lg:left-[128px]" src="./images/Status2.png" alt="">`
             }
             // ---------------------------------------------------------------
             document.getElementById("loading-spinner").classList.add("hidden")
 
             const div = document.createElement("div")
 
-            div.classList = ("col-span-2")
+            div.classList = ("")
             div.innerHTML = `
-        <div id="post-container">
         <div class="flex  bg-[#797dfc1a] rounded-lg p-4 gap-2 mb-4">
             <div>
                 ${verified}
@@ -41,28 +44,27 @@ const allPost = async (input) => {
                         <img src="./images/Group16.png" alt="">
                         <span>${item.view_count}</span>
                         <img src="./images/Group18.png" alt="">
-                        <span>${item.posted_time}</span>
+                        <span>${item.posted_time} &nbsp min</span>
                     </div>
                     <div onclick="titleBtn('${item.title}','${item.view_count}')" ><img src="./images/Group40.png" alt=""></div>
                 </div>
             </div>
         </div>
-    </div>
     `
             forumContainer.appendChild(div)
         })
     }, 2000);
 }
 
-// input btn -------------------
+// Search btn -------------------
 
 function searchBtn() {
-    const input = document.getElementById("input").value;
+    const input = document.getElementById("input").value.toUpperCase().trim();
     allPost(input)
 
 }
 
-// ------------------------------------------------
+// title section ------------------------------------------------
 let count1 = 1;
 const titleContainer = document.getElementById("title-container")
 
@@ -82,22 +84,29 @@ const titleBtn = (a, b = 0) => {
     titleContainer.appendChild(div)
 }
 
-// ---------------------------------
+// latest Post section---------------------------------
 
 const latestPostCon = document.getElementById("latest-post")
 const latestPost = async () => {
     const res = await fetch("https://openapi.programming-hero.com/api/retro-forum/latest-posts")
     const data = await res.json()
 
-    let date = ""
     data.forEach((item) => {
         // -----------------------------------------------------------------
+        let date = ""
         if (item.author.posted_date) {
             date = `<span>${item.author.posted_date}</span>`
         } else {
-            date = "Unknown"
+            date = "No Publish Date"
         }
-        // ----------------------------------------------------------------
+        // -------------------------------------------------------------------
+        let designation = ""
+        if (item.author.designation) {
+            designation = `<p class="text-[#12132d99]">${item.author.designation}</p>`
+        } else {
+            designation = "Unknown"
+        }
+        // ------------------------------------------------------------------
         const div = document.createElement("div")
         div.innerHTML = `
                 <div class="card bg-base-100 shadow-xl">
@@ -115,7 +124,7 @@ const latestPost = async () => {
                             <div><img class="rounded-xl w-[72px]"  src="${item.profile_image}" alt=""></div>
                             <div>
                                 <h4 class="font-bold">${item.author.name}</h4>
-                                <p class="text-[#12132d99]">${item.author.designation}</p>
+                                ${designation}
                             </div>
                         </div>
                     </div>
@@ -124,10 +133,6 @@ const latestPost = async () => {
         latestPostCon.appendChild(div)
     })
 }
-
-
-
-
 
 latestPost()
 allPost('Comedy')
